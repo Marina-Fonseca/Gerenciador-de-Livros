@@ -1,0 +1,81 @@
+<!-- ...existing code... -->
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gerenciador de Livros</title>
+
+    <!-- PWA / mobile -->
+    <meta name="theme-color" content="#0d6efd">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <link rel="manifest" href="manifest.json">
+    <link rel="apple-touch-icon" href="assets/icons/icon-192.png">
+
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <header>
+        <h1>Biblioteca de Livros</h1>
+        <nav>
+            <ul>
+                <li><a href="#all">Todos</a></li>
+                <li><a href="#read">Lidos</a></li>
+                <li><a href="#currently-reading">Lendo</a></li>
+                <li><a href="#wish-list">Desejo Ler</a></li>
+                <li><a href="#add-book">Adicionar Livro</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <section id="book-list">
+            <h2>Meus Livros</h2>
+            <div id="books-container"></div>
+        </section>
+        <!-- Modal para adicionar livro -->
+        <div id="add-book-modal" class="modal">
+            <div class="modal-content">
+                <span class="close" id="close-add-book">&times;</span>
+                <h2>Adicionar um Livro</h2>
+                <form id="book-form">
+                    <input type="text" id="title" placeholder="Título do livro" required>
+                    <input type="text" id="author" placeholder="Autor" required>
+                    <select id="status">
+                        <option value="read">Lido</option>
+                        <option value="currently-reading">Lendo</option>
+                        <option value="wish-to-read">Desejo Ler</option>
+                    </select>
+                    <input type="url" id="imageUrl" placeholder="URL da imagem (opcional)">
+                    <div id="rating-stars" style="margin:8px 0;">
+                        <label for="rating">Avaliação:</label>
+                        <span>
+                            <input type="radio" name="rating" id="star1" value="1"><label for="star1">★</label>
+                            <input type="radio" name="rating" id="star2" value="2"><label for="star2">★</label>
+                            <input type="radio" name="rating" id="star3" value="3"><label for="star3">★</label>
+                            <input type="radio" name="rating" id="star4" value="4"><label for="star4">★</label>
+                            <input type="radio" name="rating" id="star5" value="5"><label for="star5">★</label>
+                        </span>
+                    </div>
+                    <textarea id="comment" placeholder="Comentário sobre o livro" rows="2" style="width:100%;margin:8px 0;"></textarea>
+                    <button type="submit">Adicionar Livro</button>
+                </form>
+            </div>
+        </div>
+
+        <!-- botão para instalar PWA -->
+        <div id="install-container" style="margin:12px;">
+            <button id="install-btn" style="display:none;">Instalar App</button>
+        </div>
+    </main>
+    <footer>
+        <p>&copy; 2025 Gerenciador de Livros</p>
+    </footer>
+
+    <script src="js/storage.js"></script>
+    <script src="js/ui.js"></script>
+    <script src="js/app.js"></script>
+
+    <!-- registro do service worker movido para js/app.js -->
+</body>
+</html>
+<!-- ...existing code... -->
